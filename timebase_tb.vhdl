@@ -1,5 +1,4 @@
 library IEEE;
--- Please add necessary libraries:
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
@@ -10,8 +9,7 @@ architecture structural of timebase_tb is
     component timebase is
         port (	clk		: in	std_logic;
 		    reset		: in	std_logic;
-
-		    count_out	: out	std_logic_vector (19 downto 0)  -- Please enter upper bound
+		    count_out	: out	std_logic_vector (19 downto 0)
 	    );
     end component timebase;
 
