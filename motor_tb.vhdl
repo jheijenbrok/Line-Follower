@@ -58,4 +58,5 @@ begin
     
     direction <=    '0' after 0 ns,
                     '1' after 20000000 ns;
+                    
 end structural;
