@@ -7,9 +7,10 @@ entity timebase_tb is end;
 architecture structural of timebase_tb is
 
     component timebase is
-        port (	clk		: in	std_logic;
-		    reset		: in	std_logic;
-		    count_out	: out	std_logic_vector (19 downto 0)
+        port (	
+            clk	        : in	std_logic;
+		    reset       : in	std_logic;
+		    count_out   : out	std_logic_vector (19 downto 0)
 	    );
     end component timebase;
 
@@ -23,8 +24,10 @@ begin
 
     reset <= '0';
 
-    LB1: timebase port map( clk => clk,
-                            reset => reset,
-                            count_out => count_out);
+    LB1: timebase port map( 
+        clk => clk,
+        reset => reset,
+        count_out => count_out
+    );
 
 end architecture structural;

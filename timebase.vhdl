@@ -4,16 +4,18 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity timebase is
-	port (	clk		: in	std_logic;
-		reset		: in	std_logic;
-
-		count_out	: out	std_logic_vector (19 downto 0)  -- Please enter upper bound
+	port (	
+		clk         : in	std_logic;
+		reset       : in	std_logic;
+		count_out   : out	std_logic_vector (19 downto 0)  -- Please enter upper bound
 	);
 end entity timebase;
 
 architecture behavioural of timebase is
+
 	signal count : unsigned (19 downto 0) := (others => '0');
 	signal new_count : unsigned (19 downto 0);
+
 begin
 	process(clk)
 	begin
