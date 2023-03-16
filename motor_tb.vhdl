@@ -58,5 +58,13 @@ begin
     
     direction <=    '0' after 0 ns,
                     '1' after 20000000 ns;
+
+    LB1: motorcontrol port map (
+        clk         => clk,
+        reset       => reset,
+        direction   => direction,
+        count_in    => count,
+        pwm         => pwm
+    );
                     
 end structural;
