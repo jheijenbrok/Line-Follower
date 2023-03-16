@@ -14,35 +14,35 @@ end entity motorcontrol;
 
 architecture behavioral of motorcontrol is
 
-    signal pwm	: std_logic;
+    signal pwm_out	: std_logic;
 
 begin
     process (clk, reset)
     begin
         if (rising_edge(clk)) then
             if (reset = '1') then
-                pwm <= '0';
+                pwm_out <= '0';
             elsif (direction = '1') then
                 -- 1 ms
                 if (to_integer(unsigned(count_in)) < 50000) then
-                    pwm <= '1';
+                    pwm_out <= '1';
                 else
-                    pwm <= '0';
+                    pwm_out <= '0';
                 end if;
             else
                 -- 2 ms
                 if (to_integer(unsigned(count_in)) < 100000) then
-                    pwm <= '1';
+                    pwm_out <= '1';
                 else
-                    pwm <= '0';
+                    pwm_out <= '0';
                 end if;
             end if;
         end if;
     end process;
 
-    process (pwm)
+    process (pwm_out)
     begin
-        pwm <= pwm;
+        pwm <= pwm_out;
     end process;
 
 end architecture behavioral;
