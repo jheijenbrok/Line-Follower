@@ -4,26 +4,16 @@ use IEEE.numeric_std.all;
 
 entity timebase is
     port (	
-<<<<<<< Updated upstream
         clk         : in    std_logic;
         reset       : in    std_logic;
         count_out   : out   std_logic_vector (19 downto 0)
-=======
-        clk         : in	std_logic;
-        reset       : in	std_logic;
-        count_out   : out	std_logic_vector (19 downto 0)
->>>>>>> Stashed changes
     );
 end entity timebase;
 
 architecture behavioural of timebase is
 
     signal count        : unsigned (19 downto 0) := (others => '0');
-<<<<<<< Updated upstream
     signal new_count    : unsigned (19 downto 0) := (others => '0');
-=======
-    signal new_count    : unsigned (19 downto 0);
->>>>>>> Stashed changes
 
 begin
     process(clk)
