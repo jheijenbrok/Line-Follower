@@ -22,21 +22,19 @@ begin
         if (rising_edge(clk)) then
             if (reset = '1') then
                 pwm_out <= '0';
-            else
-                if (direction = '1') then
-                    -- 1 ms
-                    if (to_integer(unsigned(count_in)) < 50000) then
-                        pwm_out <= '1';
-                    else
-                        pwm_out <= '0';
-                    end if;
+            elsif (direction = '1') then
+                -- 1 ms
+                if (to_integer(unsigned(count_in)) < 50000) then
+                    pwm_out <= '1';
                 else
-                    -- 2 ms
-                    if (to_integer(unsigned(count_in)) < 100000) then
-                        pwm_out <= '1';
-                    else
-                        pwm_out <= '0';
-                    end if;
+                    pwm_out <= '0';
+                end if;
+            else
+                -- 2 ms
+                if (to_integer(unsigned(count_in)) < 100000) then
+                    pwm_out <= '1';
+                else
+                    pwm_out <= '0';
                 end if;
             end if;
         end if;
