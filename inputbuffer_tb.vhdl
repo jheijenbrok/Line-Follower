@@ -19,10 +19,10 @@ architecture testbench of inputbuffer_tb is
         );
     end component;
     
-    signal clk: std_logic;
-    signal sensor_l_in: std_logic;
-    signal sensor_m_in: std_logic;
-    signal sensor_r_in: std_logic;
+    signal clk: std_logic := '0';
+    signal sensor_l_in: std_logic := '0';
+    signal sensor_m_in: std_logic := '0';
+    signal sensor_r_in: std_logic := '0';
 
 begin
 
