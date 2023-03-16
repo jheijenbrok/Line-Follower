@@ -24,6 +24,10 @@ architecture testbench of inputbuffer_tb is
     signal sensor_m_in: std_logic := '0';
     signal sensor_r_in: std_logic := '0';
 
+    signal sensor_l_out: std_logic := '0';
+    signal sensor_m_out: std_logic := '0';
+    signal sensor_r_out: std_logic := '0';
+
 begin
 
     uut: inputbuffer port map(
@@ -33,9 +37,9 @@ begin
         sensor_m_in => sensor_m_in,
         sensor_r_in => sensor_r_in,
 
-        sensor_l_out => open,
-        sensor_m_out => open,
-        sensor_r_out => open
+        sensor_l_out => sensor_l_out,
+        sensor_m_out => sensor_m_out,
+        sensor_r_out => sensor_r_out
     );
 
     clk <=  '1' after 0 ns,
