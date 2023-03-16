@@ -12,7 +12,7 @@ entity motorcontrol is
     );
 end entity motorcontrol;
 
-architecture behavioral of motorcontrol is
+architecture behavioural of motorcontrol is
 
     signal pwm_out	: std_logic;
 
@@ -45,4 +45,4 @@ begin
         pwm <= pwm_out;
     end process;
 
-end architecture behavioral;
+end architecture behavioural;
