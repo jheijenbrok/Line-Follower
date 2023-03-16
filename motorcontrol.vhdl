@@ -22,7 +22,7 @@ begin
         if (rising_edge(clk)) then
             if (reset = '1') then
                 pwm_out <= '0';
-            elsif (direction = '1') then
+            elsif (direction = '0') then
                 -- 1 ms
                 if (to_integer(unsigned(count_in)) < 50000) then
                     pwm_out <= '1';
