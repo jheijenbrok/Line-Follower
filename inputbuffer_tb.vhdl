@@ -1,36 +1,36 @@
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_1164.all;
 
 entity inputbuffer_tb is end;
 
 architecture testbench of inputbuffer_tb is
 
     component inputbuffer is
-        port(
-            clk: in std_logic;
+        port (
+            clk : in std_logic;
 
-            sensor_l_in: in std_logic;
-            sensor_m_in: in std_logic;
-            sensor_r_in: in std_logic;
+            sensor_l_in : in std_logic;
+            sensor_m_in : in std_logic;
+            sensor_r_in : in std_logic;
 
-            sensor_l_out: out std_logic;
-            sensor_m_out: out std_logic;
-            sensor_r_out: out std_logic
+            sensor_l_out : out std_logic;
+            sensor_m_out : out std_logic;
+            sensor_r_out : out std_logic
         );
     end component;
-    
-    signal clk: std_logic := '0';
-    signal sensor_l_in: std_logic := '0';
-    signal sensor_m_in: std_logic := '0';
-    signal sensor_r_in: std_logic := '0';
 
-    signal sensor_l_out: std_logic := '0';
-    signal sensor_m_out: std_logic := '0';
-    signal sensor_r_out: std_logic := '0';
+    signal clk         : std_logic := '0';
+    signal sensor_l_in : std_logic := '0';
+    signal sensor_m_in : std_logic := '0';
+    signal sensor_r_in : std_logic := '0';
+
+    signal sensor_l_out : std_logic := '0';
+    signal sensor_m_out : std_logic := '0';
+    signal sensor_r_out : std_logic := '0';
 
 begin
 
-    uut: inputbuffer port map(
+    uut : inputbuffer port map(
         clk => clk,
 
         sensor_l_in => sensor_l_in,
@@ -42,8 +42,8 @@ begin
         sensor_r_out => sensor_r_out
     );
 
-    clk <=  '1' after 0 ns,
-            '0' after 10 ns when clk /= '0' else '1' after 10 ns;
+    clk <= '1' after 0 ns,
+        '0' after 10 ns when clk /= '0' else '1' after 10 ns;
 
     sensor_l_in <= '0' after 0 ns;
     sensor_l_in <= '1' after 6 ns;

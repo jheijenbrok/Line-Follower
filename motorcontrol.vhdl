@@ -3,18 +3,18 @@ use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity motorcontrol is
-    port (	
-        clk         : in    std_logic;
-        reset       : in    std_logic;
-        direction   : in    std_logic;
-        count_in    : in    std_logic_vector (19 downto 0);
-        pwm         : out   std_logic
+    port (
+        clk       : in std_logic;
+        reset     : in std_logic;
+        direction : in std_logic;
+        count_in  : in std_logic_vector (19 downto 0);
+        pwm       : out std_logic
     );
 end entity motorcontrol;
 
 architecture behavioural of motorcontrol is
 
-    signal pwm_out	: std_logic;
+    signal pwm_out : std_logic;
 
 begin
     process (clk, reset)

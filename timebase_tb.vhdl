@@ -8,9 +8,9 @@ architecture structural of timebase_tb is
 
     component timebase is
         port (
-            clk	        : in    std_logic;
-            reset       : in    std_logic;
-            count_out   : out   std_logic_vector (19 downto 0)
+            clk       : in std_logic;
+            reset     : in std_logic;
+            count_out : out std_logic_vector (19 downto 0)
         );
     end component timebase;
 
@@ -19,15 +19,15 @@ architecture structural of timebase_tb is
     signal count_out : std_logic_vector(19 downto 0);
 
 begin
-    clk <=  '1' after 0 ns,
-            '0' after 10 ns when clk /= '0' else '1' after 10 ns;
+    clk <= '1' after 0 ns,
+        '0' after 10 ns when clk /= '0' else '1' after 10 ns;
 
     reset <= '0';
 
-    LB1: timebase port map( 
-        clk         => clk,
-        reset       => reset,
-        count_out   => count_out
+    LB1 : timebase port map(
+        clk       => clk,
+        reset     => reset,
+        count_out => count_out
     );
 
 end architecture structural;

@@ -72,27 +72,27 @@ architecture arch of inputbuffer is
     signal sensor_l_reg : std_logic;
     signal sensor_m_reg : std_logic;
     signal sensor_r_reg : std_logic;
-    
-    begin
 
-        LB1 : three_bit_registry port map(
-            clk => clk,
-            sensor_l_in => sensor_l_in,
-            sensor_m_in => sensor_m_in,
-            sensor_r_in => sensor_r_in,
-            sensor_l_out => sensor_l_reg,
-            sensor_m_out => sensor_m_reg,
-            sensor_r_out => sensor_r_reg
-        );
+begin
 
-        LB2 : three_bit_registry port map(
-            clk => clk,
-            sensor_l_in => sensor_l_reg,
-            sensor_m_in => sensor_m_reg,
-            sensor_r_in => sensor_r_reg,
-            sensor_l_out => sensor_l_out,
-            sensor_m_out => sensor_m_out,
-            sensor_r_out => sensor_r_out
-        );
-        
+    LB1 : three_bit_registry port map(
+        clk          => clk,
+        sensor_l_in  => sensor_l_in,
+        sensor_m_in  => sensor_m_in,
+        sensor_r_in  => sensor_r_in,
+        sensor_l_out => sensor_l_reg,
+        sensor_m_out => sensor_m_reg,
+        sensor_r_out => sensor_r_reg
+    );
+
+    LB2 : three_bit_registry port map(
+        clk          => clk,
+        sensor_l_in  => sensor_l_reg,
+        sensor_m_in  => sensor_m_reg,
+        sensor_r_in  => sensor_r_reg,
+        sensor_l_out => sensor_l_out,
+        sensor_m_out => sensor_m_out,
+        sensor_r_out => sensor_r_out
+    );
+
 end architecture arch;
