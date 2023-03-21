@@ -45,21 +45,17 @@ begin
     clk <= '1' after 0 ns,
         '0' after 10 ns when clk /= '0' else '1' after 10 ns;
 
-    sensor_l_in <= '0';
-    sensor_m_in <= '0';
-    sensor_r_in <= '0';
+    sensor_l_in <=  '0' after 0 ns,
+                    '1' after 6 ns,
+                    '0' after 18 ns;
 
-    sensor_l_in <= '0' after 0 ns;
-    sensor_l_in <= '1' after 6 ns;
-    sensor_l_in <= '0' after 18 ns;
+    sensor_m_in <=  '0' after 0 ns,
+                    '1' after 38 ns,
+                    '0' after 90 ns;
 
-    sensor_m_in <= '0' after 0 ns;
-    sensor_m_in <= '1' after 38 ns;
-    sensor_m_in <= '0' after 90 ns;
-
-    sensor_r_in <= '0' after 0 ns;
-    sensor_r_in <= '1' after 20 ns;
-    sensor_r_in <= '0' after 50 ns;
-    sensor_r_in <= '1' after 100 ns;
+    sensor_r_in <=  '0' after 0 ns,
+                    '1' after 20 ns,
+                    '0' after 50 ns,
+                    '1' after 100 ns;
 
 end testbench;
