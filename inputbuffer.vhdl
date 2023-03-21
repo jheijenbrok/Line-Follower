@@ -44,30 +44,30 @@ architecture arch of inputbuffer is
         port (
             clk     : in std_logic;
             reg_in  : in std_logic_vector(2 downto 0);
-            reg_out : in std_logic_vector(2 downto 0)
+            reg_out : out std_logic_vector(2 downto 0)
         );
     end component three_bit_registry;
 
-    signal sensor_in, sensor_reg, sensor_out : std_logic_vector(2 downto 0);
+    signal sensor_in, reg1_out, reg2_out : std_logic_vector(2 downto 0);
 
 begin
 
     sensor_in <= sensor_l_in & sensor_m_in & sensor_r_in;
 
-    sensor_l_out <= sensor_out(2);
-    sensor_m_out <= sensor_out(1);
-    sensor_r_out <= sensor_out(0);
-
-    LB1 : three_bit_registry port map(
+    reg1: three_bit_registry port map(
         clk     => clk,
         reg_in  => sensor_in,
-        reg_out => sensor_reg
+        reg_out => reg1_out
     );
 
-    LB2 : three_bit_registry port map(
+    reg2: three_bit_registry port map(
         clk     => clk,
-        reg_in  => sensor_reg,
-        reg_out => sensor_out
+        reg_in  => reg1_out,
+        reg_out => reg2_out
     );
+
+    sensor_l_out <= reg2_out(2);
+    sensor_m_out <= reg2_out(1);
+    sensor_r_out <= reg2_out(0);
 
 end architecture arch;

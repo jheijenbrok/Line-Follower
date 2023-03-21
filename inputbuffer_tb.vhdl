@@ -45,6 +45,10 @@ begin
     clk <= '1' after 0 ns,
         '0' after 10 ns when clk /= '0' else '1' after 10 ns;
 
+    sensor_l_in <= '0';
+    sensor_m_in <= '0';
+    sensor_r_in <= '0';
+
     sensor_l_in <= '0' after 0 ns;
     sensor_l_in <= '1' after 6 ns;
     sensor_l_in <= '0' after 18 ns;
