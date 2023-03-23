@@ -70,7 +70,7 @@ architecture structural of robot is
 
 begin
 
-    inputbuffer : inputbuffer
+    comp1: inputbuffer
     port map(
         clk => clk,
 
@@ -81,7 +81,7 @@ begin
         sensor_out => sensor_data
     );
 
-    controller : controller
+    comp2 : controller
     port map(
         clk   => clk,
         reset => reset,
@@ -97,7 +97,7 @@ begin
         motor_r_direction => motor_r_direction
     );
 
-    timebase : timebase
+    comp3 : timebase
     port map(
         clk       => clk,
         reset     => reset,

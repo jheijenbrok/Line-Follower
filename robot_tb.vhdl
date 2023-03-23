@@ -44,7 +44,7 @@ begin
         '1' after 10 ns when clk /= '1' else '0' after 10 ns;
 
     reset <= '1' after 0 ns,
-        '0' after 40 ns;
+        '0' after 40 ms;
 
     sensors <= "000" after 0 ns, --bbb
         "001" after 70 ms, --bbr
