@@ -36,7 +36,6 @@ architecture structural of robot is
 
             sensor_data      : in std_logic_vector(2 downto 0);
             count_in    : in std_logic_vector (19 downto 0);
-            count_reset : out std_logic;
 
             motor_l_reset     : out std_logic;
             motor_l_direction : out std_logic;
@@ -66,7 +65,6 @@ architecture structural of robot is
 
     signal sensor_data : std_logic_vector(2 downto 0);
     signal count_out : std_logic_vector(19 downto 0);
-    signal count_reset : std_logic;
     signal motor_l_reset, motor_l_direction : std_logic;
     signal motor_r_reset, motor_r_direction : std_logic;
 
@@ -91,7 +89,6 @@ begin
         sensor_data => sensor_data,
 
         count_in    => count_out,
-        count_reset => count_reset,
 
         motor_l_reset     => motor_l_reset,
         motor_l_direction => motor_l_direction,
@@ -103,7 +100,7 @@ begin
     timebase : timebase
     port map(
         clk       => clk,
-        reset     => count_reset,
+        reset     => reset,
         count_out => count_out
     );
 
