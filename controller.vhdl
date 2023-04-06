@@ -7,7 +7,6 @@ entity controller is
         reset : in std_logic;
 
         sensor_data : in std_logic_vector (2 downto 0);
-        count_in    : in std_logic_vector (19 downto 0);
 
         motor_l_reset     : out std_logic;
         motor_l_direction : out std_logic;
@@ -77,4 +76,5 @@ begin
 
     motor_l_direction <= motor_left_direction;
     motor_r_direction <= motor_right_direction;
+
 end architecture behavioural;
