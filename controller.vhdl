@@ -18,20 +18,9 @@ entity controller is
 end entity controller;
 
 architecture behavioural of controller is
-    component motorcontrol is
-        port (
-            clk       : in std_logic;
-            reset     : in std_logic;
-            direction : in std_logic;
-            count_in  : in std_logic_vector (19 downto 0);
-            pwm       : out std_logic
-        );
-    end component motorcontrol;
 
     signal motor_left_reset, motor_right_reset : std_logic := '0';
     signal motor_left_direction, motor_right_direction : std_logic := '0';
-
-    signal pwm_l, pwm_r : std_logic;
 
 begin
 
@@ -88,22 +77,4 @@ begin
 
     motor_l_direction <= motor_left_direction;
     motor_r_direction <= motor_right_direction;
-
-    motor1 : motorcontrol
-        port map (
-            clk       => clk,
-            reset     => motor_left_reset,
-            direction => motor_left_direction,
-            count_in  => count_in,
-            pwm       => pwm_l
-        );
-
-    motor2 : motorcontrol
-        port map (
-            clk       => clk,
-            reset     => motor_right_reset,
-            direction => motor_right_direction,
-            count_in  => count_in,
-            pwm       => pwm_r
-        );
 end architecture behavioural;
